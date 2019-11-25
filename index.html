@@ -2,18 +2,14 @@
 <html>
     <head>
         <meta name='viewport' content='width=device-width, initial-scale=1'>
-        <!-- <link rel="stylesheet" href="./styles.css">
-        <link rel="manifest" href="./manifest.json"> -->
+        <link rel="stylesheet" href="./styles.css">
+        <!-- <link rel="manifest" href="./manifest.json"> -->
         <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
         <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-        <style>
-            body {
-                margin: 0;
-                padding: 0;
-                width: 100%;
-            }
-        </style>
+        <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Varela+Round&display=swap" rel="stylesheet">
+        <!-- font-family: 'Varela Round', sans-serif; -->
     </head>
     <body>
         <div class="mdc-tab-bar" role="tablist" data-mdc-auto-init="MDCTabBar">
@@ -82,56 +78,202 @@
                 </div>
             </div>
         </div>
+        
+        <div class='form'>
+            <div class="mdc-text-field text-field mdc-text-field--outlined text" data-mdc-auto-init="MDCTextField">
+                <input type="text" id="text-field-outlined" class="mdc-text-field__input" aria-describedby="text-field-outlined-helper-text">
+                <div class="mdc-notched-outline mdc-notched-outline--upgraded">
+                    <div class="mdc-notched-outline__leading"></div>
+                    <div class="mdc-notched-outline__notch">
+                        <label class="mdc-floating-label" for="text-field-outlined">Type Of Food</label>
+                    </div>
+                    <div class="mdc-notched-outline__trailing"></div>
+                </div>
+            </div>
+            <div class="mdc-text-field-helper-line helper">
+                <div id="username-helper-text " class="mdc-text-field-helper-text mdc-text-field-helper-text--persistent" aria-hidden="true">
+                  e.g chinese, Thai, Burger
+                </div>
+            </div>
+            <div class='cost'>
+                <fieldset class="rating">
+                    <input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5"></label>
+                    <input type="radio" id="star4half" name="rating" value="4.5" /><label class="half" for="star4half"></label>
+                    <input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4"></label>
+                    <input type="radio" id="star3half" name="rating" value="3.5" /><label class="half" for="star3half"></label>
+                    <input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3"></label>
+                    <input type="radio" id="star2half" name="rating" value="2.5" /><label class="half" for="star2half"></label>
+                    <input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2"></label>
+                    <input type="radio" id="star1half" name="rating" value="1.5" /><label class="half" for="star1half"></label>
+                    <input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1"></label>
+                    <input type="radio" id="starhalf" name="rating" value="0.5" /><label class="half" for="starhalf"></label>
+                </fieldset>
+                <fieldset class="money">
+                    <input type="radio" id="dollar4" class='cost' name="cost" value="4" /><label class = "full" for="dollar4"></label>
+                    <input type="radio" id="dollar3" class='cost' name="cost" value="3" /><label class = "full" for="dollar3"></label>
+                    <input type="radio" id="dollar2" class='cost' name="cost" value="2" /><label class = "full" for="dollar2"></label>
+                    <input type="radio" id="dollar1" class='cost' name="cost" value="1" /><label class = "full" for="dollar1"></label>
+                </fieldset>
+            </div>
+            <div class="submit">
+                <button class="mdc-button mdc-button--outlined mdc-button--raised">
+                    <div class="mdc-button__ripple"></div>
+                    <span class="mdc-button__label">Submit</span>
+                </button>
+            </div>
+        </div>
 
+        <div class='list'>
+            <div class="mdc-card template">
+                <div class="mdc-card__primary-action mdc-ripple-upgraded" tabindex="0">
+                    <div>
+                        <img class='image' src="https://s3-media1.fl.yelpcdn.com/bphoto/ES22NvIG6RsqpJCnm3oMmQ/o.jpg" alt="image provided by restuarant">
+                        <h2 class="mdc-typography mdc-typography--headline6">Our Changing Planet</h2>
+                        <fieldset class="rest_rating">
+                            <label class="full s9" for="rest_star5" ></label>
+                            <label class="half s8" for="rest_star4half"></label>
+                            <label class="full s7" for="rest_star4"></label>
+                            <label class="half s6" for="rest_star3half"></label>
+                            <label class="full s5" for="rest_star3"></label>
+                            <label class="half s4" for="rest_star2half"></label>
+                            <label class = "full s3" for="rest_star2"></label>
+                            <label class="half s2" for="rest_star1half"></label>
+                            <label class = "full s1" for="rest_star1"></label>
+                            <label class="half s0" for="rest_starhalf"></label>
+                        </fieldset>
+                    </div>
+                    <div class="mdc-typography mdc-typography--body2">
+                        Visit ten places on our planet that are undergoing the biggest changes today.
+                    </div>
+                </div>
+                <div class="mdc-card__actions">
+                    <div>
+                        <label class='carryout'>Pickup</label>
+                        <label class='delivery'>Delivery</label>
+                        <label class='reservation'>Reservation</label>
+                    </div>
+                    <div class="mdc-card__action-icons">
+                        <button class="mdc-icon-button mdc-card__action mdc-card__action--icon mdc-ripple-upgraded--unbounded mdc-ripple-upgraded" aria-pressed="false" aria-label="Add to favorites" title="Add to favorites" style="--mdc-ripple-fg-size:28px; --mdc-ripple-fg-scale:1.71429; --mdc-ripple-left:10px; --mdc-ripple-top:10px;">
+                            <i class="material-icons mdc-icon-button__icon mdc-icon-button__icon--on">
+                                favorite
+                            </i>
+                            <i class="material-icons mdc-icon-button__icon">
+                                favorite_border
+                            </i>
+                        </button>
+                        <button class="mdc-icon-button material-icons mdc-card__action mdc-card__action--icon mdc-ripple-upgraded--unbounded mdc-ripple-upgraded" title="Share" data-mdc-ripple-is-unbounded="true" style="--mdc-ripple-fg-size:28px; --mdc-ripple-fg-scale:1.71429; --mdc-ripple-left:10px; --mdc-ripple-top:10px;">
+                                map
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
         <script>
             window.mdc.autoInit();
             const tabBar = document.querySelector('.mdc-tab-bar').MDCTabBar;
-        
-
+            const floating = document.querySelector('.mdc-floating-label').MDCTextField;
         </script>
-        <!-- <script>
+        <script>
             let getPosition;
-            let yelpData;
+            let yelpData=[];
+            let avgReviews;
             let weatherData;
-            //gets the location of user
-            if ("geolocation" in navigator) {
-                getPosition = function (options) {
-                    return new Promise(function (resolve, reject) {
-                        navigator.geolocation.getCurrentPosition(resolve, reject, options);
-                    });
-                }   
-            } else {
-                /* geolocation IS NOT available */
-                console.log("Don't have access to geolocation.")
-            }
 
-            //retrieves weather data and yelp data based on users location
-            getPosition().then((position) => {
-                var userLat = position.coords.latitude
-                var userLong = position.coords.longitude
-                let yelpURL = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?latitude="+userLat.toString()+"&longitude="+userLong.toString()+"&radius=30000&limit=40";   
-                let weatherURL = "https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/4cefd5f8788a4c620b34ee756a53a1d2/"+userLat.toString()+","+userLong.toString()
-                $.ajax({
-                    url: yelpURL,
-                    headers: {
-                        'Authorization':'Bearer fsJPHz3ecv98ThJaK1MxqDaJT6ve2_ndPSVwMJLgUIt5A2ovpyjygyAUq63xE_lScOP2KALjJv4werBUdTMY3NEvkWspa0GnCDQ2QRaidhPqUnwfkobutGpL9mfVXXYx',
-                    },
-                    method: 'GET',
-                    dataType: 'json',
-                    success: function(data){
-                        yelpData = data
+            $(document).ready(function(){
+                $(".mdc-button.mdc-button--outlined.mdc-button--raised").on("click", function(){
+                    //gets the location of user
+                    if ("geolocation" in navigator) {
+                        getPosition = function (options) {
+                            return new Promise(function (resolve, reject) {
+                                navigator.geolocation.getCurrentPosition(resolve, reject, options);
+                            });
+                        }   
+                    } else {
+                        /* geolocation IS NOT available */
+                        console.log("Don't have access to geolocation.")
                     }
-                });
-                $.get(weatherURL, function(data){
-                    weatherData = data
-                })
-            })
-            console.log(weatherData)
+                    
+                    //retrieves weather data and yelp data based on users location
+                    getPosition().then((position) => {
+                        var userLat = position.coords.latitude
+                        var userLong = position.coords.longitude
+                        var cost = $("input[name='cost']:checked").val();
+                        var type = $(".mdc-text-field__input").val();
+                        var rating = $("input[name='rating']:checked").val();
 
-        </script> -->
+                        let yelpURL = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?latitude="+userLat.toString()+"&longitude="+userLong.toString()+"&radius=10000&limit=50";
+                        if(type != undefined){
+                            yelpURL = yelpURL.concat("&categories="+type)
+                            console.log(yelpURL)
+                        }
+                        if(cost != undefined){
+                            yelpURL = yelpURL.concat("&price="+cost.toString())
+                        }
+                           
+                        let weatherURL = "https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/4cefd5f8788a4c620b34ee756a53a1d2/"+userLat.toString()+","+userLong.toString()
+                        $.ajax({
+                            url: yelpURL,
+                            headers: {
+                                'Authorization':'Bearer fsJPHz3ecv98ThJaK1MxqDaJT6ve2_ndPSVwMJLgUIt5A2ovpyjygyAUq63xE_lScOP2KALjJv4werBUdTMY3NEvkWspa0GnCDQ2QRaidhPqUnwfkobutGpL9mfVXXYx',
+                            },
+                            method: 'GET',
+                            dataType: 'json',
+                            success: function(data){
+                                yelpData = []
+                                $.each(data.businesses, function(i,v){
+                                    if(rating != undefined){
+                                        if(v.rating >= rating){
+                                            yelpData.push(v)
+                                        }
+                                    }
+                                    else{
+                                        yelpData.push(v)
+                                    }
+                                });
+                                createList()
+                            }
+                        });
+                        // $.get(weatherURL, function(data){
+                        //     weatherData = data
+                        // })
+                    });
+                });
+
+                // creates the contents of the list tab such as card for every restuarant received
+                let createList = () => {
+                    $(".mdc-card").not(".template").remove();
+                    $.each(yelpData, function(i, v){
+                        let clone = $(".mdc-card.template").clone();
+
+                        var r = parseFloat(v.rating)
+                        var k = 0
+                        while(r != 0){
+                            clone.find(".s"+k.toString()).css("color", "#FFD700")
+                            r-=0.5
+                            k+=1
+                        }
+
+                        clone.find("h2.mdc-typography.mdc-typography--headline6").text(v.name);
+                        if(v.transactions.indexOf("pickup") > -1){
+                            clone.find("label.carryout").css('background-color','green')
+                        }
+                        if(v.transactions.indexOf("delivery") > -1){
+                            clone.find("label.delivery").css('background-color','green')
+                        }
+                        if(v.transactions.indexOf("restaurant_reservation") > -1){
+                            clone.find("label.reservation").css('background-color','green')
+                        }
+                        clone.find("img.image").attr('src', v.image_url)
+                        clone.removeClass("template");
+                        $(".list").append(clone);
+                    });
+                    $(".mdc-card").show();  
+                    $(".mdc-card.template").hide();
+                }
+            });
+        </script>
     </body>
 
 </html>

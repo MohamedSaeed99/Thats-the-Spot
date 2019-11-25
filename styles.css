@@ -1,0 +1,160 @@
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+.form{
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.text{
+    width: 60%;
+}
+fieldset, label { margin: 0; padding: 0; }
+
+/****** Style Dollar Widget *****/
+.money, .rating, .rest_rating { 
+    border: none;
+    float: left;
+}
+
+.money > input { display: none; } 
+.money > label:before { 
+    margin: 5px;
+    font-size: 1.25em;
+    font-family: FontAwesome;
+    display: inline-block;
+    content: "\f155";
+}
+
+.money > .half:before { 
+    content: "\f155";
+    position: absolute;
+}
+
+.money > label { 
+    color: #ddd; 
+    float: right; 
+}
+
+/***** CSS Magic to Highlight Dollars on Hover *****/
+.money > input:checked ~ label,
+.money:not(:checked) > label:hover,
+.money:not(:checked) > label:hover ~ label { color: #85bb65;  }
+
+.money > input:checked + label:hover,
+.money > input:checked ~ label:hover,
+.money > label:hover ~ input:checked ~ label, 
+.money > input:checked ~ label:hover ~ label { color: #85bb65;  } 
+
+/****** Style Star Rating Widget *****/
+.rating > input { display: none; } 
+.rating > label:before { 
+    margin: 5px;
+    font-size: 1.25em;
+    font-family: FontAwesome;
+    display: inline-block;
+    content: "\f005";
+  }
+  
+  .rating > .half:before { 
+    content: "\f089";
+    position: absolute;
+  }
+  
+  .rating > label { 
+    color: #ddd; 
+   float: right; 
+  }
+  
+  /***** CSS Magic to Highlight Stars on Hover *****/
+  .rating > input:checked ~ label, /* show gold star when clicked */
+  .rating:not(:checked) > label:hover, /* hover current star */
+  .rating:not(:checked) > label:hover ~ label { color: #FFD700;  } /* hover previous stars in list */
+  
+  .rating > input:checked + label:hover, /* hover current star when changing rating */
+  .rating > input:checked ~ label:hover,
+  .rating > label:hover ~ input:checked ~ label, /* lighten current selection */
+  .rating > input:checked ~ label:hover ~ label { color: #FFED85;  } 
+
+.helper{
+    padding-bottom: 20px;
+}
+.cost{
+    padding-bottom: 10px;
+}
+.helper, .cost{
+    width: 60%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.submit{
+    width: 60%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+/* List modification */
+.mdc-card{
+    width: 80%;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+.list{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.image{
+    float:left;
+}
+
+.carryout, .delivery, .reservation{
+    color: white;
+    background-color: red;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 10px;
+    font-family: 'Varela Round', sans-serif;
+}
+
+.image{
+    height: 110px;
+    width: 100px;
+    border-radius: 5px;
+}
+
+.rest_rating{
+    margin-left:15px;
+}
+.rest_rating > label:before { 
+    margin: 2px;
+    font-size: 1.0em;
+    font-family: FontAwesome;
+    display: inline-block;
+    content: "\f005";
+}
+  
+.rest_rating > .half:before { 
+    content: "\f089";
+    position: absolute;
+}
+  
+.rest_rating > label { 
+    color: #ddd; 
+    float: right; 
+}
+
+.fill {
+    color: blue;
+}
+
