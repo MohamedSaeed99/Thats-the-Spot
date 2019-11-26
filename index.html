@@ -132,6 +132,7 @@
                         <a class='link' style='display:none;' href="https://www.yelp.com/biz/vie-restaurant-western-springs-2?adjust_creative=EX5JkbUeV-x-OxLWgtVIEQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=EX5JkbUeV-x-OxLWgtVIEQ"></a>
                         <img class='image' src="https://s3-media1.fl.yelpcdn.com/bphoto/ES22NvIG6RsqpJCnm3oMmQ/o.jpg" alt="image provided by restuarant"/>
                         <h2 class="mdc-typography mdc-typography--headline6">Our Changing Planet</h2>
+                        <p class='phone mdc-typography--body2'>+13123772002</p>
                         <fieldset class="rest_rating">
                             <label class="full s9" for="rest_star5" ></label>
                             <label class="half s8" for="rest_star4half"></label>
@@ -323,6 +324,9 @@
 
                     //sets link for every list
                     clone.find('a.link').attr("href", v.url)
+
+                    //sets phone number of restuarant
+                    clone.find('.phone.mdc-typography--body2').text(v.phone)
 
                     //sets headline to restuarants name
                     clone.find("h2.mdc-typography.mdc-typography--headline6").text(v.name);

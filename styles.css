@@ -161,6 +161,7 @@ fieldset, label { margin: 0; padding: 0; }
 }
 
 h2.mdc-typography.mdc-typography--headline6{
+    margin-top: 5px;
     padding:0;
     margin-bottom: 0;
     margin-left:110px;
@@ -186,8 +187,15 @@ h2.mdc-typography.mdc-typography--headline6{
     margin:0;
     font-size: 10px;
 }
-/* .fill {
-    color: blue;
+.phone{
+    margin-top:2px;
+    margin-bottom:0;
+    margin-left:115px;
+    padding:0;
+}
+
+/* .mdc-card.template{
+    display: none;
 } */
 
 /* Map modification */
