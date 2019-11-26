@@ -9,17 +9,19 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Varela+Round&display=swap" rel="stylesheet">
-        <!-- font-family: 'Varela Round', sans-serif; -->
+        <script src="https://unpkg.com/dexie@latest/dist/dexie.js"></script>
+
     </head>
     <body>
         <div class="mdc-tab-bar" role="tablist" data-mdc-auto-init="MDCTabBar">
             <div class="mdc-tab-scroller">
                 <div class="mdc-tab-scroller__scroll-area">
                     <div class="mdc-tab-scroller__scroll-content">
-                        <button class="mdc-tab mdc-tab--stacked mdc-tab--active" id='#form' role="tab" aria-selected="true" tabindex="0">
+                        <!-- Form tab section -->
+                        <button class="mdc-tab mdc-tab--stacked mdc-tab--active" id='form' role="tab" aria-selected="true" tabindex="0">
                             <span class="mdc-tab__content">
                                 <span class="mdc-tab__icon material-icons" aria-hidden="true">pageview</span>
-                                <span class="mdc-tab__text-label">Form</span>
+                                <span class="mdc-tab__text-label" >Form</span>
                             </span>
                             <span class="mdc-tab-indicator mdc-tab-indicator--active">
                                 <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
@@ -27,8 +29,8 @@
                             <span class="mdc-tab__ripple"></span>
                         </button>
 
-                        <!-- Form tab section -->
-                        <button class="mdc-tab mdc-tab--stacked mdc-tab--deactive" id='#list' role="tab" aria-selected="true" tabindex="1">
+                        <!-- List tab section -->
+                        <button class="mdc-tab mdc-tab--stacked mdc-tab--deactive" id='list' role="tab" aria-selected="true" tabindex="1">
                             <span class="mdc-tab__content">
                                 <span class="mdc-tab__icon material-icons" aria-hidden="true">list</span>
                                 <span class="mdc-tab__text-label">List</span>
@@ -40,7 +42,7 @@
                         </button>
 
                         <!-- Map tab section -->
-                        <button class="mdc-tab mdc-tab--stacked mdc-tab--deactive" id='#map' role="tab" aria-selected="true" tabindex="2">
+                        <button class="mdc-tab mdc-tab--stacked mdc-tab--deactive" id='maps' role="tab" aria-selected="true" tabindex="2">
                             <span class="mdc-tab__content">
                                 <span class="mdc-tab__icon material-icons" aria-hidden="true">map</span>
                                 <span class="mdc-tab__text-label">Map</span>
@@ -52,7 +54,7 @@
                         </button>
 
                         <!-- Weather tab section -->
-                        <button class="mdc-tab mdc-tab--stacked mdc-tab--deactive" id='#weather' role="tab" aria-selected="true" tabindex="3">
+                        <button class="mdc-tab mdc-tab--stacked mdc-tab--deactive" id='weather' role="tab" aria-selected="true" tabindex="3">
                             <span class="mdc-tab__content">
                                 <span class="mdc-tab__icon material-icons" aria-hidden="true">wb_sunny</span>
                                 <span class="mdc-tab__text-label">Weather</span>
@@ -64,7 +66,7 @@
                         </button>
 
                         <!-- Favorite map section -->
-                        <button class="mdc-tab mdc-tab--stacked mdc-tab--deactive" id='#favorite' role="tab" aria-selected="true" tabindex="4">
+                        <button class="mdc-tab mdc-tab--stacked mdc-tab--deactive" id='favorite' role="tab" aria-selected="true" tabindex="4">
                             <span class="mdc-tab__content">
                                 <span class="mdc-tab__icon material-icons" aria-hidden="true">favorite</span>
                                 <span class="mdc-tab__text-label">Favorites</span>
@@ -79,7 +81,7 @@
             </div>
         </div>
         
-        <div class='form'>
+        <div class='content form'>
             <div class="mdc-text-field text-field mdc-text-field--outlined text" data-mdc-auto-init="MDCTextField">
                 <input type="text" id="text-field-outlined" class="mdc-text-field__input" aria-describedby="text-field-outlined-helper-text">
                 <div class="mdc-notched-outline mdc-notched-outline--upgraded">
@@ -123,11 +125,12 @@
             </div>
         </div>
 
-        <div class='list'>
+        <div class='content list' style='display:none;'>
             <div class="mdc-card template">
                 <div class="mdc-card__primary-action mdc-ripple-upgraded" tabindex="0">
                     <div>
-                        <img class='image' src="https://s3-media1.fl.yelpcdn.com/bphoto/ES22NvIG6RsqpJCnm3oMmQ/o.jpg" alt="image provided by restuarant">
+                        <a class='link' style='display:none;' href="https://www.yelp.com/biz/vie-restaurant-western-springs-2?adjust_creative=EX5JkbUeV-x-OxLWgtVIEQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=EX5JkbUeV-x-OxLWgtVIEQ"></a>
+                        <img class='image' src="https://s3-media1.fl.yelpcdn.com/bphoto/ES22NvIG6RsqpJCnm3oMmQ/o.jpg" alt="image provided by restuarant"/>
                         <h2 class="mdc-typography mdc-typography--headline6">Our Changing Planet</h2>
                         <fieldset class="rest_rating">
                             <label class="full s9" for="rest_star5" ></label>
@@ -142,8 +145,17 @@
                             <label class="half s0" for="rest_starhalf"></label>
                         </fieldset>
                     </div>
-                    <div class="mdc-typography mdc-typography--body2">
-                        Visit ten places on our planet that are undergoing the biggest changes today.
+                </div>
+                <div class="mdc-card__actions">
+                    <div class='location'>
+                        <button class="map-icon mdc-icon-button material-icons mdc-card__action mdc-card__action--icon mdc-ripple-upgraded--unbounded mdc-ripple-upgraded" title="Share" data-mdc-ripple-is-unbounded="true" style="--mdc-ripple-fg-size:28px; --mdc-ripple-fg-scale:1.71429; --mdc-ripple-left:10px; --mdc-ripple-top:10px;">
+                            map
+                            <p class='latLong' style='display:none'></p>
+                        </button>
+                        <div class='restLoc'>
+                        <p class='city'>Worth, IL 60482</p>
+                        <p class='addr'>10700 S Harlem Ave</p>
+                        </div>
                     </div>
                 </div>
                 <div class="mdc-card__actions">
@@ -161,13 +173,20 @@
                                 favorite_border
                             </i>
                         </button>
-                        <button class="mdc-icon-button material-icons mdc-card__action mdc-card__action--icon mdc-ripple-upgraded--unbounded mdc-ripple-upgraded" title="Share" data-mdc-ripple-is-unbounded="true" style="--mdc-ripple-fg-size:28px; --mdc-ripple-fg-scale:1.71429; --mdc-ripple-left:10px; --mdc-ripple-top:10px;">
-                                map
-                        </button>
                     </div>
                 </div>
             </div>
         </div>
+
+        <div class="content" id="map" style='display:none'>
+        </div>
+
+        <div class="content favorites" style='display:none'>
+        </div>
+
+        <div class="content weather" style='display:none'>
+        </div>
+
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script>
@@ -177,102 +196,198 @@
         </script>
         <script>
             let getPosition;
-            let yelpData=[];
+            let yelpData = [];
             let avgReviews;
             let weatherData;
+            let userLat = 41.8781;
+            let userLong = -87.6298;
+
+            //gets the location of user
+            if ("geolocation" in navigator) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    userLat = position.coords.latitude
+                    userLong = position.coords.longitude
+                })   
+            } else {
+                /* geolocation IS NOT available */
+                console.log("Don't have access to geolocation.")
+            }
 
             $(document).ready(function(){
-                $(".mdc-button.mdc-button--outlined.mdc-button--raised").on("click", function(){
-                    //gets the location of user
-                    if ("geolocation" in navigator) {
-                        getPosition = function (options) {
-                            return new Promise(function (resolve, reject) {
-                                navigator.geolocation.getCurrentPosition(resolve, reject, options);
-                            });
-                        }   
-                    } else {
-                        /* geolocation IS NOT available */
-                        console.log("Don't have access to geolocation.")
-                    }
-                    
-                    //retrieves weather data and yelp data based on users location
-                    getPosition().then((position) => {
-                        var userLat = position.coords.latitude
-                        var userLong = position.coords.longitude
-                        var cost = $("input[name='cost']:checked").val();
-                        var type = $(".mdc-text-field__input").val();
-                        var rating = $("input[name='rating']:checked").val();
 
-                        let yelpURL = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?latitude="+userLat.toString()+"&longitude="+userLong.toString()+"&radius=10000&limit=50";
-                        if(type != undefined){
-                            yelpURL = yelpURL.concat("&categories="+type)
-                            console.log(yelpURL)
-                        }
-                        if(cost != undefined){
-                            yelpURL = yelpURL.concat("&price="+cost.toString())
-                        }
-                           
-                        let weatherURL = "https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/4cefd5f8788a4c620b34ee756a53a1d2/"+userLat.toString()+","+userLong.toString()
-                        $.ajax({
-                            url: yelpURL,
-                            headers: {
-                                'Authorization':'Bearer fsJPHz3ecv98ThJaK1MxqDaJT6ve2_ndPSVwMJLgUIt5A2ovpyjygyAUq63xE_lScOP2KALjJv4werBUdTMY3NEvkWspa0GnCDQ2QRaidhPqUnwfkobutGpL9mfVXXYx',
-                            },
-                            method: 'GET',
-                            dataType: 'json',
-                            success: function(data){
-                                yelpData = []
-                                $.each(data.businesses, function(i,v){
-                                    if(rating != undefined){
-                                        if(v.rating >= rating){
-                                            yelpData.push(v)
-                                        }
-                                    }
-                                    else{
-                                        yelpData.push(v)
-                                    }
-                                });
-                                createList()
-                            }
-                        });
-                        // $.get(weatherURL, function(data){
-                        //     weatherData = data
-                        // })
-                    });
+                //opens link leading to the restuarant on yelp
+                $("body").on('click',".mdc-card__primary-action.mdc-ripple-upgraded", function(){
+                    var win = window.open($(this).find("a").attr("href"), "_blank");
+                    win.focus();
                 });
 
-                // creates the contents of the list tab such as card for every restuarant received
-                let createList = () => {
-                    $(".mdc-card").not(".template").remove();
-                    $.each(yelpData, function(i, v){
-                        let clone = $(".mdc-card.template").clone();
+                //listens to form submission clicks and creates the list
+                $(".mdc-button.mdc-button--outlined.mdc-button--raised").on("click", function(){  
+                    //retrieves weather data and yelp data based on users location
+                    var cost = $("input[name='cost']:checked").val();
+                    var type = $(".mdc-text-field__input").val().toLowerCase();
+                    var rating = $("input[name='rating']:checked").val();
 
-                        var r = parseFloat(v.rating)
-                        var k = 0
-                        while(r != 0){
-                            clone.find(".s"+k.toString()).css("color", "#FFD700")
-                            r-=0.5
-                            k+=1
-                        }
+                    let yelpURL = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?latitude="+userLat.toString()+"&longitude="+userLong.toString()+"&radius=10000&limit=50";
+                    if(type != undefined && type.length != 0){
+                        yelpURL = yelpURL.concat("&categories="+type)
+                    }
+                    if(cost != undefined){
+                        yelpURL = yelpURL.concat("&price="+cost.toString())
+                    }
+                        
+                    let weatherURL = "https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/4cefd5f8788a4c620b34ee756a53a1d2/"+userLat.toString()+","+userLong.toString()
 
-                        clone.find("h2.mdc-typography.mdc-typography--headline6").text(v.name);
-                        if(v.transactions.indexOf("pickup") > -1){
-                            clone.find("label.carryout").css('background-color','green')
+                    $.ajax({
+                        url: yelpURL,
+                        headers: {
+                            'Authorization':'Bearer fsJPHz3ecv98ThJaK1MxqDaJT6ve2_ndPSVwMJLgUIt5A2ovpyjygyAUq63xE_lScOP2KALjJv4werBUdTMY3NEvkWspa0GnCDQ2QRaidhPqUnwfkobutGpL9mfVXXYx',
+                        },
+                        method: 'GET',
+                        dataType: 'json',
+                        success: function(data){
+                            yelpData = []
+                            $.each(data.businesses, function(i,v){
+                                if(rating != undefined){
+                                    if(v.rating >= rating){
+                                        yelpData.push(v)
+                                    }
+                                }
+                                else{
+                                    yelpData.push(v)
+                                }
+                            });
+                            createList()
                         }
-                        if(v.transactions.indexOf("delivery") > -1){
-                            clone.find("label.delivery").css('background-color','green')
-                        }
-                        if(v.transactions.indexOf("restaurant_reservation") > -1){
-                            clone.find("label.reservation").css('background-color','green')
-                        }
-                        clone.find("img.image").attr('src', v.image_url)
-                        clone.removeClass("template");
-                        $(".list").append(clone);
                     });
-                    $(".mdc-card").show();  
-                    $(".mdc-card.template").hide();
-                }
+                    $(".content").hide()
+                    $(".list").show()
+                    tabBar.activateTab(1)
+                    // $.get(weatherURL, function(data){
+                    //     weatherData = data
+                    // })
+                });
+
+                //listens to tab clicks
+                $("#maps").on("click", function(){
+                    console.log("maps")
+                    $(".content").hide()
+                    $("#map").show()
+                })
+                $("#form").on("click", function(){
+                    console.log('form')
+                    $(".content").hide()
+                    $(".form").show()
+                })
+                $("#list").on("click", function(){
+                    $(".content").hide()
+                    $(".list").show()
+                })
+                $("#weather").on("click", function(){
+                    $(".content").hide()
+                    $(".weather").show()
+                })
+                $("#favorite").on("click", function(){
+                    $(".content").hide()
+                    $(".favorites").show()
+                })
+
+                //display marker on map from the map icon on list
+                $("body").on('click', '.map-icon', function(){
+                    var coord = $(this).find('p.latLong').text().split(",")
+                    $(".content").hide()
+                    $("#map").show()
+                    tabBar.activateTab(2)
+                    initMap(parseFloat(coord[0]), parseFloat(coord[1]))
+                });
             });
+
+            // creates the contents of the list tab such as card for every restuarant received
+            let createList = () => {
+                $(".mdc-card").not(".template").remove();
+                $.each(yelpData, function(i, v){
+                    let clone = $(".mdc-card.template").clone();
+
+                    //calculates star rating retrieved from api
+                    var r = parseFloat(v.rating)
+                    var k = 0
+                    while(r != 0){
+                        clone.find(".s"+k.toString()).css("color", "#FFD700")
+                        r-=0.5
+                        k+=1
+                    }
+
+                    //sets the location of restuarant
+                    clone.find('p.city').text(v.location.display_address[1])
+                    clone.find('p.addr').text(v.location.display_address[0])
+
+                    //sets link for every list
+                    clone.find('a.link').attr("href", v.url)
+
+                    //sets headline to restuarants name
+                    clone.find("h2.mdc-typography.mdc-typography--headline6").text(v.name);
+
+                    //sets hidden paragraph tag to restuarants lat and long
+                    clone.find("p.latLong").text(v.coordinates["latitude"] + ","+ v.coordinates["longitude"]);
+
+                    //checks what services restuarant has and colors it based on that
+                    if(v.transactions.indexOf("pickup") > -1){
+                        clone.find("label.carryout").css('background-color','green')
+                    }
+                    if(v.transactions.indexOf("delivery") > -1){
+                        clone.find("label.delivery").css('background-color','green')
+                    }
+                    if(v.transactions.indexOf("restaurant_reservation") > -1){
+                        clone.find("label.reservation").css('background-color','green')
+                    }
+
+                    //sets image tage to restuarants image
+                    clone.find("img.image").attr('src', v.image_url)
+                    clone.removeClass("template");
+                    $(".list").append(clone);
+                });
+                $(".mdc-card").show();  
+                $(".mdc-card.template").hide();
+            }
+
+            function initMap(locLat, locLong) {
+                var cen = {lat: userLat, lng: userLong};
+                var map = new google.maps.Map(document.getElementById('map'), {
+                    zoom: 10,
+                    center: cen
+                });
+                // var contentString = '<div id="content">'+
+                //     '<div id="siteNotice">'+
+                //     '</div>'+
+                //     '<h1 id="firstHeading" class="firstHeading">' + v.title + '</h1>' +
+                //     '<div id="bodyContent">' +
+                //     '<p><b>Park</b>: ' + v.park + '<br/>' +
+                //     '<b>Rating</b>: ' + v.rating + '<br/>' +
+                //     '<b>Closed Caption</b>: ' + v.cc + '<br/>' +
+                //     '<b>Day</b>: ' + d.toDateString() + '<br/>' +
+                //     '<b>Park Phone</b>: ' + v.park_phone  + '<br/>' +
+                //     '<b>Park Address</b>: ' + v.park_address + '</p>'
+                //     '</div>'+
+                //     '</div>';
+                // var infowindow = new google.maps.InfoWindow({
+                //     content: contentString
+                // });
+                var marker = new google.maps.Marker({
+                    position: {lat: locLat, lng: locLong},
+                    map: map
+                    // title: v.park + '('+v.title+')'
+                });
+                // marker.addListener('click', function() {
+                //     infowindow.open(map, marker);
+                // });
+            }
+            // var db = new Dexie("favorite");
+            // db.version(1).stores({
+            //     friends: 'name, rating, phone, trans, lat, long'
+            // });
+        </script>
+        <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAOXh7u22Jx_Atkl_rIGx7y3I1dYy03ctc&callback=initMap">
         </script>
     </body>
 
