@@ -202,3 +202,25 @@ h2.mdc-typography.mdc-typography--headline6{
 #map{
     height: 80vh;
 }
+
+/* Weather modification */
+.weather{
+    width: 100%;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+.mdc-card.weather-card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 10px;
+    height:200px;
+    width:200px;
+}
+.weather-image{
+    height:100px;
+    width: 100px;
+}
+
