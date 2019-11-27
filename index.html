@@ -7,9 +7,9 @@
         <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
         <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Varela+Round&display=swap" rel="stylesheet">
         <script src="https://unpkg.com/dexie@latest/dist/dexie.js"></script>
+        <script src="https://kit.fontawesome.com/c4f279487f.js" crossorigin="anonymous"></script>
 
     </head>
     <body>
@@ -80,7 +80,7 @@
                 </div>
             </div>
         </div>
-        
+
         <div class='content form'>
             <div class="mdc-text-field text-field mdc-text-field--outlined text" data-mdc-auto-init="MDCTextField">
                 <input type="text" id="text-field-outlined" class="mdc-text-field__input" aria-describedby="text-field-outlined-helper-text">
@@ -183,34 +183,45 @@
         </div>
 
         <div class="content weather">
-            <div class="mdc-card weather-card">
+            <div class="mdc-card current-weather">
                 <div class="mdc-card__media">
                     <img class='weather-image' src="https://s3-media1.fl.yelpcdn.com/bphoto/ES22NvIG6RsqpJCnm3oMmQ/o.jpg" alt="image provided by restuarant"/>
                 </div>
                 <div class="mdc-card-wrapper__text-section">
-                    <div class="demo-card__title">Card title</div>
-                    <div class="demo-card__subhead">Secondary text</div>
+                    <div>Card title</div>
+                    <div>Secondary text</div>
                 </div>
             </div> 
+            <div class="future-forecast">
+                <div class="mdc-card weather-card">
+                    <div class="mdc-card__media">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <div class="mdc-card-wrapper__text-section">
+                        <div>Card title</div>
+                        <div>Secondary text</div>
+                    </div>
+                </div> 
 
-            <div class="mdc-card weather-card">
-                <div class="mdc-card__media">
-                    <img class='weather-image' src="https://s3-media1.fl.yelpcdn.com/bphoto/ES22NvIG6RsqpJCnm3oMmQ/o.jpg" alt="image provided by restuarant"/>
-                </div>
-                <div class="mdc-card-wrapper__text-section">
-                    <div class="demo-card__title">Card title</div>
-                    <div class="demo-card__subhead">Secondary text</div>
-                </div>
-            </div> 
-            <div class="mdc-card weather-card mobile-disable">
-                <div class="mdc-card__media">
-                    <img class='weather-image' src="https://s3-media1.fl.yelpcdn.com/bphoto/ES22NvIG6RsqpJCnm3oMmQ/o.jpg" alt="image provided by restuarant"/>
-                </div>
-                <div class="mdc-card-wrapper__text-section">
-                    <div class="demo-card__title">Card title</div>
-                    <div class="demo-card__subhead">Secondary text</div>
-                </div>
-            </div> 
+                <div class="mdc-card weather-card">
+                    <div class="mdc-card__media">
+                        <img class='weather-image' src="https://s3-media1.fl.yelpcdn.com/bphoto/ES22NvIG6RsqpJCnm3oMmQ/o.jpg" alt="image provided by restuarant"/>
+                    </div>
+                    <div class="mdc-card-wrapper__text-section">
+                        <div>Card title</div>
+                        <div>Secondary text</div>
+                    </div>
+                </div> 
+                <div class="mdc-card weather-card mobile-disable">
+                    <div class="mdc-card__media">
+                        <img class='weather-image' src="https://s3-media1.fl.yelpcdn.com/bphoto/ES22NvIG6RsqpJCnm3oMmQ/o.jpg" alt="image provided by restuarant"/>
+                    </div>
+                    <div class="mdc-card-wrapper__text-section">
+                        <div>Card title</div>
+                        <div>Secondary text</div>
+                    </div>
+                </div> 
+            </div>
         </div>
 
         <div class="content favorites" style='display:none'>
@@ -291,10 +302,21 @@
                     $(".list").show()
                     tabBar.activateTab(1)
                 });
-                // let weatherURL = "https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/4cefd5f8788a4c620b34ee756a53a1d2/"+userLat.toString()+","+userLong.toString()
-                // $.get(weatherURL, function(data){
-                //     weatherData = data
-                // })
+
+                // function callEveryHour() {
+                //     setInterval(yourFunction, fillWeatherCard * 60 * 60);
+                // }
+                
+                let fillWeatherCard = () => {
+                    let weatherURL = "https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/4cefd5f8788a4c620b34ee756a53a1d2/"+userLat.toString()+","+userLong.toString()+"?exclude=minutely,daily,alerts,flags"
+                    $.get(weatherURL, function(data){
+                        weatherData = data
+                    })
+                    $(".current-weather").find()
+
+                }
+
+               // fillWeatherCard()
 
                 //listens to tab clicks
                 $("#maps").on("click", function(){

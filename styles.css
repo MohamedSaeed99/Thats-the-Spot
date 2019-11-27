@@ -31,11 +31,6 @@ fieldset, label { margin: 0; padding: 0; }
     content: "\f155";
 }
 
-.money > .half:before { 
-    content: "\f155";
-    position: absolute;
-}
-
 .money > label, .rating > label { 
     color: #ddd; 
     float: right; 
@@ -204,13 +199,20 @@ h2.mdc-typography.mdc-typography--headline6{
 }
 
 /* Weather modification */
-.weather{
+.weather, .future-forecast{
     width: 100%;
     display:flex;
     align-items: center;
     justify-content: center;
 }
-.mdc-card.weather-card{
+
+.weather{
+    height:100vh;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin-top: 20px;
+}
+.current-weather, .mdc-card.weather-card{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -219,6 +221,7 @@ h2.mdc-typography.mdc-typography--headline6{
     height:200px;
     width:200px;
 }
+
 .weather-image{
     height:100px;
     width: 100px;
