@@ -80,7 +80,6 @@
                 </div>
             </div>
         </div>
-
         <div class='content form'>
             <div class="mdc-text-field text-field mdc-text-field--outlined text" data-mdc-auto-init="MDCTextField">
                 <input type="text" id="text-field-outlined" class="mdc-text-field__input" aria-describedby="text-field-outlined-helper-text">
@@ -99,16 +98,16 @@
             </div>
             <div class='cost'>
                 <fieldset class="rating">
-                    <input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5"></label>
-                    <input type="radio" id="star4half" name="rating" value="4.5" /><label class="half" for="star4half"></label>
-                    <input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4"></label>
-                    <input type="radio" id="star3half" name="rating" value="3.5" /><label class="half" for="star3half"></label>
-                    <input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3"></label>
-                    <input type="radio" id="star2half" name="rating" value="2.5" /><label class="half" for="star2half"></label>
-                    <input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2"></label>
-                    <input type="radio" id="star1half" name="rating" value="1.5" /><label class="half" for="star1half"></label>
-                    <input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1"></label>
-                    <input type="radio" id="starhalf" name="rating" value="0.5" /><label class="half" for="starhalf"></label>
+                    <input type="radio" id="star5" name="rating" value="5" /><label class = "fas fa-star" for="star5"></label>
+                    <input type="radio" id="star4half" name="rating" value="4.5" /><label class="fas fa-star-half-alt" for="star4half"></label>
+                    <input type="radio" id="star4" name="rating" value="4" /><label class = "fas fa-star" for="star4"></label>
+                    <input type="radio" id="star3half" name="rating" value="3.5" /><label class="fas fa-star-half-alt" for="star3half"></label>
+                    <input type="radio" id="star3" name="rating" value="3" /><label class = "fas fa-star" for="star3"></label>
+                    <input type="radio" id="star2half" name="rating" value="2.5" /><label class="fas fa-star-half-alt" for="star2half"></label>
+                    <input type="radio" id="star2" name="rating" value="2" /><label class = "fas fa-star" for="star2"></label>
+                    <input type="radio" id="star1half" name="rating" value="1.5" /><label class="fas fa-star-half-alt" for="star1half"></label>
+                    <input type="radio" id="star1" name="rating" value="1" /><label class = "fas fa-star" for="star1"></label>
+                    <input type="radio" id="starhalf" name="rating" value="0.5" /><label class="fas fa-star-half-alt" for="starhalf"></label>
                 </fieldset>
                 <fieldset class="money">
                     <input type="radio" id="dollar4" class='cost' name="cost" value="4" /><label class = "full" for="dollar4"></label>
@@ -124,9 +123,8 @@
                 </button>
             </div>
         </div>
-
         <div class='content list' style='display:none;'>
-            <div class="mdc-card template">
+            <div class="mdc-card listings template">
                 <div class="mdc-card__primary-action mdc-ripple-upgraded" tabindex="0">
                     <div>
                         <a class='link' style='display:none;' href="https://www.yelp.com/biz/vie-restaurant-western-springs-2?adjust_creative=EX5JkbUeV-x-OxLWgtVIEQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=EX5JkbUeV-x-OxLWgtVIEQ"></a>
@@ -134,16 +132,16 @@
                         <h2 class="mdc-typography mdc-typography--headline6">Our Changing Planet</h2>
                         <p class='phone mdc-typography--body2'>+13123772002</p>
                         <fieldset class="rest_rating">
-                            <label class="full s9" for="rest_star5" ></label>
-                            <label class="half s8" for="rest_star4half"></label>
-                            <label class="full s7" for="rest_star4"></label>
-                            <label class="half s6" for="rest_star3half"></label>
-                            <label class="full s5" for="rest_star3"></label>
-                            <label class="half s4" for="rest_star2half"></label>
-                            <label class = "full s3" for="rest_star2"></label>
-                            <label class="half s2" for="rest_star1half"></label>
-                            <label class = "full s1" for="rest_star1"></label>
-                            <label class="half s0" for="rest_starhalf"></label>
+                            <label class="fas fa-star s9" for="rest_star5" ></label>
+                            <label class="fas fa-star-half-alt s8" for="rest_star4half"></label>
+                            <label class="fas fa-star s7" for="rest_star4"></label>
+                            <label class="fas fa-star-half-alt s6" for="rest_star3half"></label>
+                            <label class="fas fa-star s5" for="rest_star3"></label>
+                            <label class="fas fa-star-half-alt s4" for="rest_star2half"></label>
+                            <label class = "fas fa-star s3" for="rest_star2"></label>
+                            <label class="fas fa-star-half-alt s2" for="rest_star1half"></label>
+                            <label class = "fas fa-star s1" for="rest_star1"></label>
+                            <label class="fas fa-star-half-alt s0" for="rest_starhalf"></label>
                         </fieldset>
                     </div>
                 </div>
@@ -184,41 +182,45 @@
 
         <div class="content weather">
             <div class="mdc-card current-weather">
+                <p id='time'></p>
                 <div class="mdc-card__media">
-                    <img class='weather-image' src="https://s3-media1.fl.yelpcdn.com/bphoto/ES22NvIG6RsqpJCnm3oMmQ/o.jpg" alt="image provided by restuarant"/>
+                    <img id='icon' src="https://img.icons8.com/android/96/000000/partly-cloudy-day.png">
                 </div>
                 <div class="mdc-card-wrapper__text-section">
-                    <div>Card title</div>
-                    <div>Secondary text</div>
+                    <p id='temp'></p>
+                    <p id='summary'></p>
                 </div>
             </div> 
             <div class="future-forecast">
                 <div class="mdc-card weather-card">
+                    <p id='time2'></p>
                     <div class="mdc-card__media">
-                        <i class="fas fa-cloud"></i>
+                        <img id='icon2' src="https://img.icons8.com/android/96/000000/partly-cloudy-day.png">
                     </div>
                     <div class="mdc-card-wrapper__text-section">
-                        <div>Card title</div>
-                        <div>Secondary text</div>
+                        <p id='temp2'></p>
+                        <p id='summary2'></p>
                     </div>
                 </div> 
 
                 <div class="mdc-card weather-card">
+                    <p id='time3'></p>
                     <div class="mdc-card__media">
-                        <img class='weather-image' src="https://s3-media1.fl.yelpcdn.com/bphoto/ES22NvIG6RsqpJCnm3oMmQ/o.jpg" alt="image provided by restuarant"/>
+                        <img id='icon3' src="https://img.icons8.com/android/96/000000/partly-cloudy-day.png">
                     </div>
                     <div class="mdc-card-wrapper__text-section">
-                        <div>Card title</div>
-                        <div>Secondary text</div>
+                        <p id='temp3'></p>
+                        <p id='summary3'></p>
                     </div>
                 </div> 
                 <div class="mdc-card weather-card mobile-disable">
+                    <p id='time4'></p>
                     <div class="mdc-card__media">
-                        <img class='weather-image' src="https://s3-media1.fl.yelpcdn.com/bphoto/ES22NvIG6RsqpJCnm3oMmQ/o.jpg" alt="image provided by restuarant"/>
+                        <img id='icon4' src="https://img.icons8.com/android/96/000000/partly-cloudy-day.png">
                     </div>
                     <div class="mdc-card-wrapper__text-section">
-                        <div>Card title</div>
-                        <div>Secondary text</div>
+                        <p id='temp4'></p>
+                        <p id='summary4'></p>
                     </div>
                 </div> 
             </div>
@@ -254,12 +256,126 @@
             }
 
             $(document).ready(function(){
-
                 //opens link leading to the restuarant on yelp
                 $("body").on('click',".mdc-card__primary-action.mdc-ripple-upgraded", function(){
                     var win = window.open($(this).find("a").attr("href"), "_blank");
                     win.focus();
                 });
+
+                let iconDecision = (icon) => {
+                    switch(icon){
+                        case "clear-day":
+                            return "https://img.icons8.com/android/96/000000/sun.png"
+                        case "clear-night":
+                            return "https://img.icons8.com/windows/96/000000/bright-moon.png"
+                        case "rain":
+                            return "https://img.icons8.com/android/96/000000/rain.png"
+                        case "snow":
+                            return "https://img.icons8.com/android/96/000000/snow.png"
+                        case "sleet":
+                            return "https://img.icons8.com/android/96/000000/sleet.png"
+                        case "wind":
+                            return "https://img.icons8.com/windows/96/000000/windy-weather.png"
+                        case "fog":
+                            return "https://img.icons8.com/android/96/000000/dust.png"
+                        case "cloudy":
+                            return "https://img.icons8.com/android/96/000000/clouds.png"
+                        case "partly-cloudy-day":
+                            return "https://img.icons8.com/android/96/000000/partly-cloudy-day.png"
+                        case "partly-cloudy-night":
+                            return "https://img.icons8.com/android/96/000000/partly-cloudy-night.png"
+                        case "hail":
+                            return "https://img.icons8.com/android/96/000000/hail.png"
+                        case "thunderstorm":
+                            return "https://img.icons8.com/android/96/000000/storm.png"
+                        case "tornado":
+                            return "https://img.icons8.com/windows/96/000000/tornado.png"
+                    }
+                }
+                let findNextDifferentWeather = (data, leftOff) => {
+                    for (leftOff; leftOff <  data.length; leftOff++){
+                        if(data[leftOff].icon != data[leftOff+1].icon){
+                            return leftOff + 1
+                        }
+                    }
+                    return leftOff
+                }
+                let getTime = (time) => {
+                    var d = new Date(time*1000).getHours()
+                    if(d == 0){
+                        return "12 AM"
+                    }
+                    else if(d > 0 && d <= 12){
+                        return d.toString()+" AM"
+                    }
+                    else{
+                        return (d-12).toString() + " PM"
+                    }
+                }
+                let getDay = (time) =>{
+                    var d = new Date(time*1000).getDay()
+                    switch(d){
+                        case 0:
+                            return "Sun"
+                        case 1:
+                            return "Mon"
+                        case 2:
+                            return "Tue"
+                        case 3:
+                            return "Wed"
+                        case 4:
+                            return "Thu"
+                        case 5:
+                            return "Fri"
+                        case 6:
+                            return "Sat"
+                    }
+                }
+                let fillWeatherCard = () => {
+                    let weatherURL = "https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/4cefd5f8788a4c620b34ee756a53a1d2/"+userLat.toString()+","+userLong.toString()+"?exclude=minutely,daily,alerts,flags"
+                    $.get(weatherURL, function(data){
+                        weatherData = data
+                        // console.log("H "+weatherData)
+                        // $(".current-weather").find("img.icon").attr("src", iconDecision(weatherData.hourly.data[0].icon))
+                    }).then(function(weatherData){
+                        var cur = 0
+                        
+                        $(".current-weather").find("img#icon").attr("src", iconDecision(weatherData.hourly.data[cur].icon))
+                        $(".current-weather").find("#temp").text(Math.round(weatherData.hourly.data[cur].temperature)+"°F")
+                        $(".current-weather").find("#summary").text(weatherData.hourly.data[cur].summary)
+
+                        var day = getDay(weatherData.hourly.data[cur].time)
+                        var time = getTime(weatherData.hourly.data[cur].time)
+                        $(".current-weather").find("#time").text(day+" "+time)
+                       
+                        cur = findNextDifferentWeather(weatherData.hourly.data, cur)
+                        $(".future-forecast").find("img#icon2").attr("src", iconDecision(weatherData.hourly.data[cur].icon))
+                        $(".future-forecast").find("#temp2").text(Math.round(weatherData.hourly.data[cur].temperature)+"°F")
+                        $(".future-forecast").find("#summary2").text(weatherData.hourly.data[cur].summary)
+
+                        day = getDay(weatherData.hourly.data[cur].time)
+                        time = getTime(weatherData.hourly.data[cur].time)
+                        $(".future-forecast").find("#time2").text(day+" "+time)
+
+                        cur = findNextDifferentWeather(weatherData.hourly.data, cur)
+                        $(".future-forecast").find("img#icon3").attr("src", iconDecision(weatherData.hourly.data[cur].icon))
+                        $(".future-forecast").find("#temp3").text(Math.round(weatherData.hourly.data[cur].temperature)+"°F")
+                        $(".future-forecast").find("#summary3").text(weatherData.hourly.data[cur].summary)
+
+                        day = getDay(weatherData.hourly.data[cur].time)
+                        time = getTime(weatherData.hourly.data[cur].time)
+                        $(".future-forecast").find("#time3").text(day+" "+time)
+
+                        cur = findNextDifferentWeather(weatherData.hourly.data, cur)
+                        $(".future-forecast").find("img#icon4").attr("src", iconDecision(weatherData.hourly.data[cur].icon))
+                        $(".future-forecast").find("#temp4").text(Math.round(weatherData.hourly.data[cur].temperature)+"°F")
+                        $(".future-forecast").find("#summary4").text(weatherData.hourly.data[cur].summary)
+
+                        day = getDay(weatherData.hourly.data[cur].time)
+                        time = getTime(weatherData.hourly.data[cur].time)
+                        $(".future-forecast").find("#time4").text(day+" "+time)
+                    })
+                }
 
                 //listens to form submission clicks and creates the list
                 $(".mdc-button.mdc-button--outlined.mdc-button--raised").on("click", function(){  
@@ -301,22 +417,8 @@
                     $(".content").hide()
                     $(".list").show()
                     tabBar.activateTab(1)
+                    fillWeatherCard()
                 });
-
-                // function callEveryHour() {
-                //     setInterval(yourFunction, fillWeatherCard * 60 * 60);
-                // }
-                
-                let fillWeatherCard = () => {
-                    let weatherURL = "https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/4cefd5f8788a4c620b34ee756a53a1d2/"+userLat.toString()+","+userLong.toString()+"?exclude=minutely,daily,alerts,flags"
-                    $.get(weatherURL, function(data){
-                        weatherData = data
-                    })
-                    $(".current-weather").find()
-
-                }
-
-               // fillWeatherCard()
 
                 //listens to tab clicks
                 $("#maps").on("click", function(){
@@ -354,7 +456,7 @@
 
             // creates the contents of the list tab such as card for every restuarant received
             let createList = () => {
-                $(".mdc-card").not(".template").remove();
+                $(".mdc-card.listings").not(".template").remove();
                 $.each(yelpData, function(i, v){
                     let clone = $(".mdc-card.template").clone();
 

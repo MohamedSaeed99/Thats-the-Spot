@@ -32,7 +32,7 @@ fieldset, label { margin: 0; padding: 0; }
 }
 
 .money > label, .rating > label { 
-    color: #ddd; 
+    color: #edebe9; 
     float: right; 
 }
 
@@ -50,25 +50,22 @@ fieldset, label { margin: 0; padding: 0; }
 .rating > label:before { 
     margin: 5px;
     font-size: 1.25em;
-    font-family: FontAwesome;
     display: inline-block;
-    content: "\f005";
-  }
+} 
   
-  .rating > .half:before { 
-    content: "\f089";
+.rating > .fas.fa-star-half-alt:before { 
     position: absolute;
-  }
+}
   
-  /***** CSS Magic to Highlight Stars on Hover *****/
-  .rating > input:checked ~ label, /* show gold star when clicked */
-  .rating:not(:checked) > label:hover, /* hover current star */
-  .rating:not(:checked) > label:hover ~ label { color: #FFD700;  } /* hover previous stars in list */
-  
-  .rating > input:checked + label:hover, /* hover current star when changing rating */
-  .rating > input:checked ~ label:hover,
-  .rating > label:hover ~ input:checked ~ label, /* lighten current selection */
-  .rating > input:checked ~ label:hover ~ label { color: #FFED85;  } 
+/***** CSS Magic to Highlight Stars on Hover *****/
+.rating > input:checked ~ label, /* show gold star when clicked */
+.rating:not(:checked) > label:hover, /* hover current star */
+.rating:not(:checked) > label:hover ~ label { color: #FFD700;  } /* hover previous stars in list */
+
+.rating > input:checked + label:hover, /* hover current star when changing rating */
+.rating > input:checked ~ label:hover,
+.rating > label:hover ~ input:checked ~ label, /* lighten current selection */
+.rating > input:checked ~ label:hover ~ label { color: #FFED85;  } 
 
 .helper{
     padding-bottom: 20px;
@@ -116,6 +113,9 @@ fieldset, label { margin: 0; padding: 0; }
 
 .image{
     float:left;
+    height: 110px;
+    width: 100px;
+    border-radius: 5px;
 }
 
 .carryout, .delivery, .reservation{
@@ -128,25 +128,11 @@ fieldset, label { margin: 0; padding: 0; }
     font-family: 'Varela Round', sans-serif;
 }
 
-.image{
-    height: 110px;
-    width: 100px;
-    border-radius: 5px;
-}
-
 .rest_rating{
     margin-left:15px;
 }
-.rest_rating > label:before { 
-    margin: 2px;
-    font-size: 1.0em;
-    font-family: FontAwesome;
-    display: inline-block;
-    content: "\f005";
-}
-  
-.rest_rating > .half:before { 
-    content: "\f089";
+
+.rest_rating > .fas.fa-star-half-alt:before { 
     position: absolute;
 }
   
@@ -213,17 +199,36 @@ h2.mdc-typography.mdc-typography--headline6{
     margin-top: 20px;
 }
 .current-weather, .mdc-card.weather-card{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
     margin: 10px;
     height:200px;
     width:200px;
 }
+.mdc-card__media, .mdc-card-wrapper__text-section{
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 
-.weather-image{
-    height:100px;
-    width: 100px;
+#time,#time2,#time3,#time4{
+    padding:0;
+    margin: 0;
+    padding-top:5px;
+    padding-left:5px;
+}
+
+#summary, #summary2, #summary3, #summary4{
+    padding:0;
+    margin:0;
+}
+#temp, #temp2, #temp3, #temp4{
+    padding:0;
+    margin:0;
+}
+
+img{
+    height:50px;
+    width:50px;
 }
 
