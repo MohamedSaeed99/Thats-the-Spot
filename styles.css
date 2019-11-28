@@ -85,6 +85,14 @@ fieldset, label { margin: 0; padding: 0; }
     justify-content: flex-end;
 }
 
+.fav{
+    color: #edebe9;
+}
+
+.fav-highlight{
+    color: #fff15c;
+}
+
 @media only screen and (max-width: 600px){
     .cost{
         flex-direction: column;
@@ -103,7 +111,7 @@ fieldset, label { margin: 0; padding: 0; }
     margin-bottom: 10px;
     margin-top: 10px;
 }
-.list{
+.list, .favorites{
     width: 100%;
     display: flex;
     flex-direction: column;

@@ -10,7 +10,6 @@
         <link href="https://fonts.googleapis.com/css?family=Varela+Round&display=swap" rel="stylesheet">
         <script src="https://unpkg.com/dexie@latest/dist/dexie.js"></script>
         <script src="https://kit.fontawesome.com/c4f279487f.js" crossorigin="anonymous"></script>
-
     </head>
     <body>
         <div class="mdc-tab-bar" role="tablist" data-mdc-auto-init="MDCTabBar">
@@ -123,9 +122,11 @@
                 </button>
             </div>
         </div>
+
+
         <div class='content list' style='display:none;'>
             <div class="mdc-card listings template">
-                <div class="mdc-card__primary-action mdc-ripple-upgraded" tabindex="0">
+                <div class="mdc-card__primary-action mdc-ripple-upgraded">
                     <div>
                         <a class='link' style='display:none;' href="https://www.yelp.com/biz/vie-restaurant-western-springs-2?adjust_creative=EX5JkbUeV-x-OxLWgtVIEQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=EX5JkbUeV-x-OxLWgtVIEQ"></a>
                         <img class='image' src="https://s3-media1.fl.yelpcdn.com/bphoto/ES22NvIG6RsqpJCnm3oMmQ/o.jpg" alt="image provided by restuarant"/>
@@ -164,12 +165,10 @@
                         <label class='reservation'>Reservation</label>
                     </div>
                     <div class="mdc-card__action-icons">
-                        <button class="mdc-icon-button mdc-card__action mdc-card__action--icon mdc-ripple-upgraded--unbounded mdc-ripple-upgraded" aria-pressed="false" aria-label="Add to favorites" title="Add to favorites" style="--mdc-ripple-fg-size:28px; --mdc-ripple-fg-scale:1.71429; --mdc-ripple-left:10px; --mdc-ripple-top:10px;">
-                            <i class="material-icons mdc-icon-button__icon mdc-icon-button__icon--on">
+                        <button class="favorite-icon mdc-icon-button mdc-card__action mdc-card__action--icon mdc-ripple-upgraded--unbounded mdc-ripple-upgraded" aria-pressed="false" aria-label="Add to favorites" title="Add to favorites" style="--mdc-ripple-fg-size:28px; --mdc-ripple-fg-scale:1.71429; --mdc-ripple-left:10px; --mdc-ripple-top:10px;">
+                            <p class='id' style='display:none;'></p>
+                            <i class="fav material-icons mdc-icon-button__icon fav-icon">
                                 favorite
-                            </i>
-                            <i class="material-icons mdc-icon-button__icon">
-                                favorite_border
                             </i>
                         </button>
                     </div>
@@ -227,6 +226,55 @@
         </div>
 
         <div class="content favorites" style='display:none'>
+            <div class="mdc-card likes template">
+                <div class="mdc-card__primary-action mdc-ripple-upgraded">
+                    <div>
+                        <a class='link' style='display:none;' href="https://www.yelp.com/biz/vie-restaurant-western-springs-2?adjust_creative=EX5JkbUeV-x-OxLWgtVIEQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=EX5JkbUeV-x-OxLWgtVIEQ"></a>
+                        <img class='image' src="https://s3-media1.fl.yelpcdn.com/bphoto/ES22NvIG6RsqpJCnm3oMmQ/o.jpg" alt="image provided by restuarant"/>
+                        <h2 class="mdc-typography mdc-typography--headline6">Our Changing Planet</h2>
+                        <p class='phone mdc-typography--body2'>+13123772002</p>
+                        <fieldset class="rest_rating">
+                            <label class="fas fa-star s9" for="rest_star5" ></label>
+                            <label class="fas fa-star-half-alt s8" for="rest_star4half"></label>
+                            <label class="fas fa-star s7" for="rest_star4"></label>
+                            <label class="fas fa-star-half-alt s6" for="rest_star3half"></label>
+                            <label class="fas fa-star s5" for="rest_star3"></label>
+                            <label class="fas fa-star-half-alt s4" for="rest_star2half"></label>
+                            <label class = "fas fa-star s3" for="rest_star2"></label>
+                            <label class="fas fa-star-half-alt s2" for="rest_star1half"></label>
+                            <label class = "fas fa-star s1" for="rest_star1"></label>
+                            <label class="fas fa-star-half-alt s0" for="rest_starhalf"></label>
+                        </fieldset>
+                    </div>
+                </div>
+                <div class="mdc-card__actions">
+                    <div class='location'>
+                        <button class="map-icon mdc-icon-button material-icons mdc-card__action mdc-card__action--icon mdc-ripple-upgraded--unbounded mdc-ripple-upgraded" title="Share" data-mdc-ripple-is-unbounded="true" style="--mdc-ripple-fg-size:28px; --mdc-ripple-fg-scale:1.71429; --mdc-ripple-left:10px; --mdc-ripple-top:10px;">
+                            map
+                            <p class='latLong' style='display:none'></p>
+                        </button>
+                        <div class='restLoc'>
+                        <p class='city'>Worth, IL 60482</p>
+                        <p class='addr'>10700 S Harlem Ave</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mdc-card__actions">
+                    <div>
+                        <label class='carryout'>Pickup</label>
+                        <label class='delivery'>Delivery</label>
+                        <label class='reservation'>Reservation</label>
+                    </div>
+                    <div class="mdc-card__action-icons">
+                        <button class="favorite-icon mdc-icon-button mdc-card__action mdc-card__action--icon mdc-ripple-upgraded--unbounded mdc-ripple-upgraded" aria-pressed="false" aria-label="Add to favorites" title="Add to favorites" style="--mdc-ripple-fg-size:28px; --mdc-ripple-fg-scale:1.71429; --mdc-ripple-left:10px; --mdc-ripple-top:10px;">
+                            <p class='id' style='display:none;'></p>
+                            <i class="fav-highlight material-icons mdc-icon-button__icon">
+                                favorite
+                            </i>
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -243,6 +291,10 @@
             let weatherData;
             let userLat = 41.8781;
             let userLong = -87.6298;
+            let db = new Dexie("restaurant_database");
+            db.version(1).stores({
+                restaurants: 'id, name'
+            });
 
             //gets the location of user
             if ("geolocation" in navigator) {
@@ -305,8 +357,11 @@
                     if(d == 0){
                         return "12 AM"
                     }
-                    else if(d > 0 && d <= 12){
+                    else if(d > 0 && d < 12){
                         return d.toString()+" AM"
+                    }
+                    else if(d == 12){
+                        return "12 PM"
                     }
                     else{
                         return (d-12).toString() + " PM"
@@ -335,8 +390,6 @@
                     let weatherURL = "https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/4cefd5f8788a4c620b34ee756a53a1d2/"+userLat.toString()+","+userLong.toString()+"?exclude=minutely,daily,alerts,flags"
                     $.get(weatherURL, function(data){
                         weatherData = data
-                        // console.log("H "+weatherData)
-                        // $(".current-weather").find("img.icon").attr("src", iconDecision(weatherData.hourly.data[0].icon))
                     }).then(function(weatherData){
                         var cur = 0
                         
@@ -378,7 +431,8 @@
                 }
 
                 //listens to form submission clicks and creates the list
-                $(".mdc-button.mdc-button--outlined.mdc-button--raised").on("click", function(){  
+                $(".mdc-button.mdc-button--outlined.mdc-button--raised").on("click", function(){
+
                     //retrieves weather data and yelp data based on users location
                     var cost = $("input[name='cost']:checked").val();
                     var type = $(".mdc-text-field__input").val().toLowerCase();
@@ -417,17 +471,15 @@
                     $(".content").hide()
                     $(".list").show()
                     tabBar.activateTab(1)
-                    fillWeatherCard()
+                    //fillWeatherCard()
                 });
 
                 //listens to tab clicks
                 $("#maps").on("click", function(){
-                    console.log("maps")
                     $(".content").hide()
                     $("#map").show()
                 })
                 $("#form").on("click", function(){
-                    console.log('form')
                     $(".content").hide()
                     $(".form").show()
                 })
@@ -440,6 +492,7 @@
                     $(".weather").show()
                 })
                 $("#favorite").on("click", function(){
+                    createCardFromDB()
                     $(".content").hide()
                     $(".favorites").show()
                 })
@@ -452,13 +505,52 @@
                     tabBar.activateTab(2)
                     initMap(parseFloat(coord[0]), parseFloat(coord[1]))
                 });
+                //colors the heart icon and adds info to DB
+                $("body").on('click', '.favorite-icon', function(){
+                    if($(this).find("i.material-icons.mdc-icon-button__icon.fav-icon").hasClass("fav")){
+                        $(this).find("i.material-icons.mdc-icon-button__icon.fav-icon").removeClass("fav").addClass("fav-highlight")
+                        addToDB($(this).find("p.id").text())
+                    }
+                    else if($(this).find("i.material-icons.mdc-icon-button__icon.fav-icon").hasClass("fav-highlight")){
+                        $(this).find("i.material-icons.mdc-icon-button__icon.fav-icon").removeClass("fav-highlight").addClass("fav")
+                        deleteFromDB($(this).find("p.id").text())
+                    }
+                });
             });
 
+            //Deletes row from the db
+            let deleteFromDB = (id) => {
+                db.restaurants.delete(id)
+            }
+
+            //Add a selected restuarant to the DB
+            let addToDB = (id) => {
+                var rest;
+                //finds restuarant to add from yelpData
+                $.each(yelpData, function(i, v){
+                    if(v.id == id){
+                        rest = v
+                    }
+                })
+                db.restaurants.put({
+                    id: rest.id,
+                    name: rest.name,
+                    address: rest.location.display_address,
+                    image: rest.image_url,
+                    url: rest.url,
+                    rating: rest.rating,
+                    transactions: rest.transactions,
+                    coordinates: rest.coordinates
+                }).catch(function(error) {
+                    alert ("Ooops: " + error);
+                })
+            }
+            
             // creates the contents of the list tab such as card for every restuarant received
             let createList = () => {
                 $(".mdc-card.listings").not(".template").remove();
                 $.each(yelpData, function(i, v){
-                    let clone = $(".mdc-card.template").clone();
+                    let clone = $(".mdc-card.listings.template").clone();
 
                     //calculates star rating retrieved from api
                     var r = parseFloat(v.rating)
@@ -482,6 +574,9 @@
                     //sets headline to restuarants name
                     clone.find("h2.mdc-typography.mdc-typography--headline6").text(v.name);
 
+                    //sets hidden id to be used as part of favorite
+                    clone.find("p.id").text(v.id)
+
                     //sets hidden paragraph tag to restuarants lat and long
                     clone.find("p.latLong").text(v.coordinates["latitude"] + ","+ v.coordinates["longitude"]);
 
@@ -496,17 +591,79 @@
                         clone.find("label.reservation").css('background-color','green')
                     }
 
+                    //checks if card exists in db to color favorite icon
+                    db.restaurants.get(v.id, function(card){
+                        if(card != undefined)
+                            clone.find("i.material-icons.mdc-icon-button__icon.fav-icon").removeClass("fav").addClass("fav-highlight");
+                    });
+
                     //sets image tage to restuarants image
                     clone.find("img.image").attr('src', v.image_url)
                     clone.removeClass("template");
                     $(".list").append(clone);
                 });
-                $(".mdc-card").show();  
-                $(".mdc-card.template").hide();
+                $(".mdc-card.listings").show();  
+                $(".mdc-card.listings.template").hide();
+            }
+
+            let createCardFromDB = () => {
+                $(".mdc-card.likes").not(".template").remove();
+                var i =0
+                db.restaurants.each(function(restuarant){
+                    console.log(++i)
+                    let clone = $(".mdc-card.likes.template").clone();
+
+                    //calculates star rating retrieved from api
+                    var r = parseFloat(restuarant.rating)
+                    var k = 0
+                    while(r != 0){
+                        clone.find(".s"+k.toString()).css("color", "#FFD700")
+                        r-=0.5
+                        k+=1
+                    }
+
+                    //sets the location of restuarant
+                    clone.find('p.city').text(restuarant.address[1])
+                    clone.find('p.addr').text(restuarant.address[0])
+
+                    //sets link for every list
+                    clone.find('a.link').attr("href", restuarant.url)
+
+                    //sets phone number of restuarant
+                    clone.find('.phone.mdc-typography--body2').text(restuarant.phone)
+
+                    //sets headline to restuarants name
+                    clone.find("h2.mdc-typography.mdc-typography--headline6").text(restuarant.name);
+
+                    //sets hidden id to be used as part of favorite
+                    clone.find("p.id").text(restuarant.id)
+
+                    //sets hidden paragraph tag to restuarants lat and long
+                    clone.find("p.latLong").text(restuarant.coordinates["latitude"] + ","+ restuarant.coordinates["longitude"]);
+
+                    //checks what services restuarant has and colors it based on that
+                    if(restuarant.transactions.indexOf("pickup") > -1){
+                        clone.find("label.carryout").css('background-color','green');
+                    }
+                    if(restuarant.transactions.indexOf("delivery") > -1){
+                        clone.find("label.delivery").css('background-color','green');
+                    }
+                    if(restuarant.transactions.indexOf("restaurant_reservation") > -1){
+                        clone.find("label.reservation").css('background-color','green');
+                    }
+
+                    //sets image tage to restuarants image
+                    clone.find("img.image").attr('src', restuarant.image_url);
+                    clone.removeClass("template");
+                    $(".favorites").append(clone);
+                });
+
+                $(".mdc-card.likes").show();  
+                $(".mdc-card.likes.template").hide();
             }
 
             function initMap(locLat, locLong) {
-                var cen = {lat: userLat, lng: userLong};
+                var cen = {lat: parseFloat(userLat), lng: parseFloat(userLong)};
                 var map = new google.maps.Map(document.getElementById('map'), {
                     zoom: 10,
                     center: cen
@@ -528,7 +685,7 @@
                 //     content: contentString
                 // });
                 var marker = new google.maps.Marker({
-                    position: {lat: locLat, lng: locLong},
+                    position: {lat: parseFloat(locLat), lng: parseFloat(locLong)},
                     map: map
                     // title: v.park + '('+v.title+')'
                 });
@@ -536,10 +693,6 @@
                 //     infowindow.open(map, marker);
                 // });
             }
-            // var db = new Dexie("favorite");
-            // db.version(1).stores({
-            //     friends: 'name, rating, phone, trans, lat, long'
-            // });
         </script>
         <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAOXh7u22Jx_Atkl_rIGx7y3I1dYy03ctc&callback=initMap">
