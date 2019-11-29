@@ -183,9 +183,9 @@ h2.mdc-typography.mdc-typography--headline6{
     padding:0;
 }
 
-/* .mdc-card.template{
+.mdc-card.template{
     display: none;
-} */
+}
 
 /* Map modification */
 #map{

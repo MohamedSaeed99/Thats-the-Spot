@@ -3,7 +3,7 @@
     <head>
         <meta name='viewport' content='width=device-width, initial-scale=1'>
         <link rel="stylesheet" href="./styles.css">
-        <!-- <link rel="manifest" href="./manifest.json"> -->
+        <link rel="manifest" href="./manifest.json">
         <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
         <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -122,7 +122,6 @@
                 </button>
             </div>
         </div>
-
 
         <div class='content list' style='display:none;'>
             <div class="mdc-card listings template">
@@ -268,7 +267,7 @@
                     <div class="mdc-card__action-icons">
                         <button class="favorite-icon mdc-icon-button mdc-card__action mdc-card__action--icon mdc-ripple-upgraded--unbounded mdc-ripple-upgraded" aria-pressed="false" aria-label="Add to favorites" title="Add to favorites" style="--mdc-ripple-fg-size:28px; --mdc-ripple-fg-scale:1.71429; --mdc-ripple-left:10px; --mdc-ripple-top:10px;">
                             <p class='id' style='display:none;'></p>
-                            <i class="fav-highlight material-icons mdc-icon-button__icon">
+                            <i class="fav-highlight material-icons mdc-icon-button__icon fav-icon">
                                 favorite
                             </i>
                         </button>
@@ -344,6 +343,7 @@
                             return "https://img.icons8.com/windows/96/000000/tornado.png"
                     }
                 }
+
                 let findNextDifferentWeather = (data, leftOff) => {
                     for (leftOff; leftOff <  data.length; leftOff++){
                         if(data[leftOff].icon != data[leftOff+1].icon){
@@ -352,6 +352,7 @@
                     }
                     return leftOff
                 }
+
                 let getTime = (time) => {
                     var d = new Date(time*1000).getHours()
                     if(d == 0){
@@ -367,6 +368,7 @@
                         return (d-12).toString() + " PM"
                     }
                 }
+
                 let getDay = (time) =>{
                     var d = new Date(time*1000).getDay()
                     switch(d){
@@ -507,6 +509,7 @@
                 });
                 //colors the heart icon and adds info to DB
                 $("body").on('click', '.favorite-icon', function(){
+                    console.log(this)
                     if($(this).find("i.material-icons.mdc-icon-button__icon.fav-icon").hasClass("fav")){
                         $(this).find("i.material-icons.mdc-icon-button__icon.fav-icon").removeClass("fav").addClass("fav-highlight")
                         addToDB($(this).find("p.id").text())
@@ -608,13 +611,11 @@
 
             let createCardFromDB = () => {
                 $(".mdc-card.likes").not(".template").remove();
-                var i =0
-                db.restaurants.each(function(restuarant){
-                    console.log(++i)
+                db.restaurants.each(function(restaurant){
                     let clone = $(".mdc-card.likes.template").clone();
 
                     //calculates star rating retrieved from api
-                    var r = parseFloat(restuarant.rating)
+                    var r = parseFloat(restaurant.rating)
                     var k = 0
                     while(r != 0){
                         clone.find(".s"+k.toString()).css("color", "#FFD700")
@@ -623,43 +624,41 @@
                     }
 
                     //sets the location of restuarant
-                    clone.find('p.city').text(restuarant.address[1])
-                    clone.find('p.addr').text(restuarant.address[0])
+                    clone.find('p.city').text(restaurant.address[1])
+                    clone.find('p.addr').text(restaurant.address[0])
 
                     //sets link for every list
-                    clone.find('a.link').attr("href", restuarant.url)
+                    clone.find('a.link').attr("href", restaurant.url)
 
                     //sets phone number of restuarant
-                    clone.find('.phone.mdc-typography--body2').text(restuarant.phone)
+                    clone.find('.phone.mdc-typography--body2').text(restaurant.phone)
 
                     //sets headline to restuarants name
-                    clone.find("h2.mdc-typography.mdc-typography--headline6").text(restuarant.name);
+                    clone.find("h2.mdc-typography.mdc-typography--headline6").text(restaurant.name);
 
                     //sets hidden id to be used as part of favorite
-                    clone.find("p.id").text(restuarant.id)
+                    clone.find("p.id").text(restaurant.id)
 
                     //sets hidden paragraph tag to restuarants lat and long
-                    clone.find("p.latLong").text(restuarant.coordinates["latitude"] + ","+ restuarant.coordinates["longitude"]);
+                    clone.find("p.latLong").text(restaurant.coordinates["latitude"] + ","+ restaurant.coordinates["longitude"]);
 
                     //checks what services restuarant has and colors it based on that
-                    if(restuarant.transactions.indexOf("pickup") > -1){
-                        clone.find("label.carryout").css('background-color','green');
+                    if(restaurant.transactions.indexOf("pickup") > -1){
+                        clone.find("label.carryout").css('background-color','green')
                     }
-                    if(restuarant.transactions.indexOf("delivery") > -1){
-                        clone.find("label.delivery").css('background-color','green');
+                    if(restaurant.transactions.indexOf("delivery") > -1){
+                        clone.find("label.delivery").css('background-color','green')
                     }
-                    if(restuarant.transactions.indexOf("restaurant_reservation") > -1){
-                        clone.find("label.reservation").css('background-color','green');
+                    if(restaurant.transactions.indexOf("restaurant_reservation") > -1){
+                        clone.find("label.reservation").css('background-color','green')
                     }
 
                     //sets image tage to restuarants image
-                    clone.find("img.image").attr('src', restuarant.image_url);
+                    clone.find("img.image").attr('src', restaurant.image_url)
                     clone.removeClass("template");
                     $(".favorites").append(clone);
                 });
-
                 $(".mdc-card.likes").show();  
-                $(".mdc-card.likes.template").hide();
             }
 
             function initMap(locLat, locLong) {
@@ -696,6 +695,23 @@
         </script>
         <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAOXh7u22Jx_Atkl_rIGx7y3I1dYy03ctc&callback=initMap">
+        </script>
+        <script>
+            if ('serviceWorker' in navigator) {
+                window.addEventListener('load', function() {
+                    navigator.serviceWorker.register('./sw.js').then(function(reg) {
+                        // registration worked
+                        console.log('Registration succeeded. Scope is ' + reg.scope);
+                    }).catch(function(error) {
+                        // registration failed
+                        console.log('Registration failed with ' + error);
+                    });
+                });
+            }
+            window.addEventListener('offline', function(e) { 
+                alert("   You are looking at old data.\n   Connect to internet for newer data!!");
+                console.log('offline'); 
+            });
         </script>
     </body>
 

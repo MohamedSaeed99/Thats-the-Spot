@@ -1,0 +1,8 @@
+{
+    "name": "That's The Spot",
+    "short_name": "Food Spot",
+    "start_url": "./index.html",
+    "display": "standalone",
+    "background_color": "navy",
+    "description": "An app to search for nearby food locations based on the parameters and also notifies user of the weather."
+  }
