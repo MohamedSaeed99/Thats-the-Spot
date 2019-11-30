@@ -7,6 +7,7 @@
         <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
         <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link href="https://fonts.googleapis.com/css?family=Calistoga&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Varela+Round&display=swap" rel="stylesheet">
         <script src="https://unpkg.com/dexie@latest/dist/dexie.js"></script>
         <script src="https://kit.fontawesome.com/c4f279487f.js" crossorigin="anonymous"></script>
@@ -92,7 +93,7 @@
             </div>
             <div class="mdc-text-field-helper-line helper">
                 <div id="username-helper-text " class="mdc-text-field-helper-text mdc-text-field-helper-text--persistent" aria-hidden="true">
-                  e.g chinese, Thai, Burger
+                  e.g Chinese, Thai, Burgers
                 </div>
             </div>
             <div class='cost'>
@@ -124,6 +125,9 @@
         </div>
 
         <div class='content list' style='display:none;'>
+            <div class='count'>
+                <p class='val'> 0 </p>
+            </div>
             <div class="mdc-card listings template">
                 <div class="mdc-card__primary-action mdc-ripple-upgraded">
                     <div>
@@ -307,12 +311,14 @@
             }
 
             $(document).ready(function(){
+
                 //opens link leading to the restuarant on yelp
                 $("body").on('click',".mdc-card__primary-action.mdc-ripple-upgraded", function(){
                     var win = window.open($(this).find("a").attr("href"), "_blank");
                     win.focus();
                 });
 
+                //converts a string into an https which are the icons
                 let iconDecision = (icon) => {
                     switch(icon){
                         case "clear-day":
@@ -344,6 +350,7 @@
                     }
                 }
 
+                //finds weather forecast that is different than the previous one
                 let findNextDifferentWeather = (data, leftOff) => {
                     for (leftOff; leftOff <  data.length; leftOff++){
                         if(data[leftOff].icon != data[leftOff+1].icon){
@@ -353,6 +360,7 @@
                     return leftOff
                 }
 
+                //converts unix time into normal time
                 let getTime = (time) => {
                     var d = new Date(time*1000).getHours()
                     if(d == 0){
@@ -369,6 +377,7 @@
                     }
                 }
 
+                //gets the day based on a value from 0-6
                 let getDay = (time) =>{
                     var d = new Date(time*1000).getDay()
                     switch(d){
@@ -388,6 +397,8 @@
                             return "Sat"
                     }
                 }
+
+                //fills out the weather cards
                 let fillWeatherCard = () => {
                     let weatherURL = "https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/4cefd5f8788a4c620b34ee756a53a1d2/"+userLat.toString()+","+userLong.toString()+"?exclude=minutely,daily,alerts,flags"
                     $.get(weatherURL, function(data){
@@ -511,15 +522,23 @@
                     tabBar.activateTab(2)
                     initMap(parseFloat(coord[0]), parseFloat(coord[1]))
                 });
+
                 //colors the heart icon and adds info to DB
                 $("body").on('click', '.favorite-icon', function(){
-                    console.log(this)
                     if($(this).find("i.material-icons.mdc-icon-button__icon.fav-icon").hasClass("fav")){
                         $(this).find("i.material-icons.mdc-icon-button__icon.fav-icon").removeClass("fav").addClass("fav-highlight")
                         addToDB($(this).find("p.id").text())
                     }
                     else if($(this).find("i.material-icons.mdc-icon-button__icon.fav-icon").hasClass("fav-highlight")){
                         $(this).find("i.material-icons.mdc-icon-button__icon.fav-icon").removeClass("fav-highlight").addClass("fav")
+                        var o = this
+                        $("button.favorite-icon").each(function(i, obj){
+                            if($(obj).find("p.id").text() == $(o).find("p.id").text()){
+                                if($(obj).find("i.material-icons.mdc-icon-button__icon.fav-icon").hasClass("fav-highlight")){
+                                    $(obj).find("i.material-icons.mdc-icon-button__icon.fav-icon").removeClass("fav-highlight").addClass("fav")
+                                }
+                            }
+                        })
                         deleteFromDB($(this).find("p.id").text())
                     }
                 });
@@ -556,6 +575,7 @@
             // creates the contents of the list tab such as card for every restuarant received
             let createList = () => {
                 $(".mdc-card.listings").not(".template").remove();
+                $("p.val").text(yelpData.length.toString())
                 $.each(yelpData, function(i, v){
                     let clone = $(".mdc-card.listings.template").clone();
 

@@ -175,6 +175,24 @@ h2.mdc-typography.mdc-typography--headline6{
     display: none;
 }
 
+.count {
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    margin-right: 50px;
+}
+.val{
+    color:white;
+    font-family: 'Calistoga', cursive;
+    background-color: #c9c7c6;
+    border-radius: 5px;
+    padding-left:10px;
+    padding-right:10px;
+    font-size: 15px;
+    box-shadow: 1px 2px #888888;
+}
+
 /* Map modification */
 #map{
     height: 80vh;
@@ -215,10 +233,13 @@ h2.mdc-typography.mdc-typography--headline6{
 }
 
 #summary, #summary2, #summary3, #summary4{
+    font-size: 17px;
     padding:0;
     margin:0;
 }
 #temp, #temp2, #temp3, #temp4{
+    font-family: 'Calistoga', cursive;
+    font-size: 17px;
     padding:0;
     margin:0;
 }
