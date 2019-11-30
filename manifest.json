@@ -7,7 +7,7 @@
     "description": "An app to search for nearby food locations based on the parameters and also notifies user of the weather.",
     "icons": [{
       "src": "./food100.png",
-      "sizes": "192x192",
+      "sizes": "100x100",
       "type": "image/png"
     }],
     "related_applications": []
