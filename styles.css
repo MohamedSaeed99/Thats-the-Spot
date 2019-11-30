@@ -93,18 +93,6 @@ fieldset, label { margin: 0; padding: 0; }
     color: #fff15c;
 }
 
-@media only screen and (max-width: 600px){
-    .cost{
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    .money > label:before, .rating > label:before, .rating > .half:before {
-        margin: 2px;
-        font-size: 1.0em;
-    }
-}
-
-
 /* List modification */
 .mdc-card{
     width: 80%;
@@ -238,5 +226,19 @@ h2.mdc-typography.mdc-typography--headline6{
 img{
     height:50px;
     width:50px;
+}
+
+@media only screen and (max-width: 600px){
+    .cost{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .money > label:before, .rating > label:before, .rating > .half:before {
+        margin: 2px;
+        font-size: 1.0em;
+    }
+    .mdc-card.weather-card.mobile-disable{
+        display:none;
+    }
 }
 
