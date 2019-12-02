@@ -3,7 +3,6 @@
     <head>
         <meta name='viewport' content='width=device-width, initial-scale=1'>
         <meta name="theme-color" content="#5c98ff">
-        <link rel="stylesheet" href="./styles.css">
         <link rel="manifest" href="./manifest.json">
         <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
         <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
@@ -12,6 +11,7 @@
         <link href="https://fonts.googleapis.com/css?family=Varela+Round&display=swap" rel="stylesheet">
         <script src="https://unpkg.com/dexie@latest/dist/dexie.js"></script>
         <script src="https://kit.fontawesome.com/c4f279487f.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="./styles.css">
     </head>
     <body>
         <div class="mdc-tab-bar" role="tablist" data-mdc-auto-init="MDCTabBar">
@@ -683,7 +683,6 @@
                     clone.removeClass("template");
                     $(".favorites").append(clone);
                 });
-                $(".mdc-card.likes").show();  
             }
 
             function initMap(locLat, locLong) {
