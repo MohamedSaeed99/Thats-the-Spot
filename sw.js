@@ -1,7 +1,8 @@
 var cacheName = 'app-v1';
 var appShellFiles = [
     "./index.html",
-    "./styles.css"
+    "./styles.css",
+    "./SBv4T.gif"
 ];
 
 

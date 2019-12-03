@@ -129,6 +129,9 @@
             <div class='count'>
                 <p class='val'> 0 </p>
             </div>
+            <div class='load'>
+                <img src="./SBv4T.gif" alt="loading slowpoke moves" width=400/>
+            </div>
             <div class="mdc-card listings template">
                 <div class="mdc-card__primary-action mdc-ripple-upgraded">
                     <div>
@@ -450,7 +453,7 @@
 
                 //listens to form submission clicks and creates the list
                 $(".mdc-button.mdc-button--outlined.mdc-button--raised").on("click", function(){
-
+                    $(".load").show()
                     //retrieves weather data and yelp data based on users location
                     var cost = $("input[name='cost']:checked").val();
                     var type = $(".mdc-text-field__input").val().toLowerCase();
@@ -575,6 +578,7 @@
             
             // creates the contents of the list tab such as card for every restuarant received
             let createList = () => {
+                $(".load").hide()
                 $(".mdc-card.listings").not(".template").remove();
                 $("p.val").text(yelpData.length.toString())
                 $.each(yelpData, function(i, v){
