@@ -9,8 +9,11 @@
       "src": "./food100.png",
       "sizes": "192x192",
       "type": "image/png"
-    },
-    {
+    },{
+      "src": "./food100.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },{
       "src": "./food100.png",
       "sizes": "100x100",
       "type": "image/png"
